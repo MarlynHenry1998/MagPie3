@@ -5,7 +5,7 @@
  *    Uses advanced search for keywords 
  * </li></ul> 
  *    
- * @author Laurie White
+ * @author Laurie White, Marlyn Henry, Sarah Ye
  * @version April 2012
  */
 public class Magpie3
@@ -34,17 +34,30 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword("Nothing.", "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
+		else if (findKeyword("I love my mother.", "mother") >= 0
+				|| findKeyword("I love my father.", "father") >= 0
+				|| findKeyword("I love my sister.", "sister") >= 0
+				|| findKeyword("I love my brother.", "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
+        else if (findKeyword("I have five pets.", "pet") >= 0
+                || findKeyword("My cat is named Snuffles.", "cat") >= 0
+                || findKeyword("My dog is named Rabbit.", "dog") >= 0) {
+            response = "Tell me more about your pets.";
+        } else if (findKeyword("Tanczos", "Mr.") >=0) {
+            response = "He sounds like a good teacher.";
+        } else if (findKeyword("I love food.", "food") >=0) {
+            response = "I am very hungry.";
+        } else if (findKeyword("I love death.", "death") >=0) {
+            response = "Don't be so depressing.";
+        } else if (findKeyword("I have diabetes.", "diabetes") >=0) {
+            response = "Don't forget to take your insulin.";
+        }
 		else
 		{
 			response = getRandomResponse();
@@ -165,6 +178,14 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
+        else if (whichResponse == 4)
+        {
+            response = "You're dumb.";
+        }
+        else if (whichResponse == 5)
+        {
+            response = "Life is a beautiful thing.";
+        }
 
 		return response;
 	}
